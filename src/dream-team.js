@@ -17,18 +17,23 @@ function createDreamTeam(arr) {
   throw new NotImplementedError('Not implemented');
     let strArr = []
     let team = ""
-    
-    for(let i=0; i <members.length; i++){
-        if(typeof(members[i])=="string"){
-            strArr.push(members[i])
-        }
+    if(members){
+      for(let i=0; i < members.length; i++){
+    if(typeof(members[i])=='string'){
+
+      let name = members[i].trim() //берем имя и убираем пробелы
+      strArr.push(name[0].toUpperCase())
+    //   console.log(strArr)
+    //   let letter = name[0].toUpperCase()
+    //   team+=letter
+    //   console.log(team)
     }
-    for(let j=0;j<strArr.length; j++){
-        strArr.sort()
-        team += strArr[j].toUpperCase().slice(0,1)
-  
-    }
-  return team 
+   }
+   strArr.sort()
+   console.log(strArr)   
+strArr.sort().forEach(memb => team+=memb[0].toUpperCase())
+return team
+    }else return false
 }
 
 module.exports = {
